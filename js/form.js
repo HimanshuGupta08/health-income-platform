@@ -10,16 +10,12 @@ form.addEventListener("submit", e => {
 
   fetch(scriptURL, {
     method: "POST",
-    body: formData
+    body: formData,
+    mode: "no-cors"
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.status === "success") {
-      responseMessage.innerHTML = "Thank you! We will contact you soon.";
-      form.reset();
-    } else {
-      responseMessage.innerHTML = "Submission failed. Try again.";
-    }
+  .then(() => {
+    responseMessage.innerHTML = "Thank you! We will contact you soon.";
+    form.reset();
   })
   .catch(error => {
     console.error("Error!", error.message);
