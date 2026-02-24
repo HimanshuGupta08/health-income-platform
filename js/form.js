@@ -1,4 +1,4 @@
-const scriptURL = "YOUR_SCRIPT_URL";
+const scriptURL = "https://script.google.com/macros/s/AKfycbylwvg9ewjdZ6xLgxMEj4slFrOuLvzE_hCLgj9wsiIgPxd51nAa4DcaBcgxcls7QuTV/exec";
 
 document.getElementById("leadForm")?.addEventListener("submit", function(e) {
     e.preventDefault();
