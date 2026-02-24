@@ -1,22 +1,28 @@
 const scriptURL = "https://script.google.com/macros/s/AKfycbzM0pJvWyuITALDI9Ef5HD3vnlheHzoAKFLuY-l1hAOaWAfq3jg4fznPxD7LHjOJG0W/exec";
 
-document.getElementById("leadForm")?.addEventListener("submit", function(e) {
-    e.preventDefault();
+const form = document.getElementById("leadForm");
+const responseMessage = document.getElementById("responseMessage");
 
-    const form = e.target;
-    const data = new FormData(form);
+form.addEventListener("submit", e => {
+  e.preventDefault();
 
-    fetch(scriptURL, {
-        method: "POST",
-        body: data
-    })
-    .then(response => {
-        document.getElementById("responseMessage").innerText =
-            "Thank you! We will contact you shortly.";
-        form.reset();
-    })
-    .catch(error => {
-        document.getElementById("responseMessage").innerText =
-            "Something went wrong. Please try again.";
-    });
+  const formData = new FormData(form);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === "success") {
+      responseMessage.innerHTML = "Thank you! We will contact you soon.";
+      form.reset();
+    } else {
+      responseMessage.innerHTML = "Submission failed. Try again.";
+    }
+  })
+  .catch(error => {
+    console.error("Error!", error.message);
+    responseMessage.innerHTML = "Something went wrong. Please try again.";
+  });
 });
