@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.hero {
+    padding: 60px 20px;
+    background: #f4f4f4;
+}
+
+.content {
+    padding: 40px 20px;
+}
+
+.form-section {
+    padding: 40px 20px;
+    background: #eef2f7;
+}
+
+input, select {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 250px;
+}
+
+button, .btn {
+    padding: 10px 20px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 15px;
+}
